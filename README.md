@@ -3,5 +3,6 @@
 Begin by typing these in Terminal:
 ```
 cd safepeer-frontend
+npm install
 npm start
 ```

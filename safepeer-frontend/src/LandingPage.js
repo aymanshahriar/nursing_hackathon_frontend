@@ -88,8 +88,8 @@ const LandingPage = () => {
             )}
 
             {/* Main Content */}
-            <main className="lg:ml-60 flex flex-col items-center justify-center flex-grow p-6 lg:p-10 text-center">
-                <h1 className="text-primary text-4xl md:text-6xl font-fredoka">Safe Peer</h1>
+            <main className="lg:ml-60 flex flex-col items-center justify-center flex-grow p-6 lg:p-10 text-center pt-20">
+            <h1 className="text-primary text-4xl md:text-6xl font-fredoka">Safe Peer</h1>
                 <p className="mt-4 text-lg md:text-xl font-montserrat max-w-xl">
                     A secure, AI-powered peer support platform designed to reduce loneliness
                     and foster connection for adolescents in psychiatric care.

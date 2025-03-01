@@ -10,19 +10,19 @@ const NavBar = () => {
     return (
         <nav className="fixed bottom-0 w-full bg-primary p-3 flex justify-around">
             <Link to="/messages">
-                <img src={chatIcon} alt="Messages" className="w-6 h-6" />
+                <img src={chatIcon} alt="Messages" className="w-8 h-8 transition hover:opacity-70 hover:grayscale" />
             </Link>
             <Link to="/matching">
-                <img src={matchIcon} alt="Match" className="w-6 h-6" />
+                <img src={matchIcon} alt="Match" className="w-8 h-8 transition hover:opacity-70 hover:grayscale" />
             </Link>
             <Link to="/">
-                <img src={homeIcon} alt="Home" className="w-6 h-6" />
+                <img src={homeIcon} alt="Home" className="w-9 h-9 transition hover:opacity-70 hover:grayscale" />
             </Link>
             <Link to="/journal">
-                <img src={journalIcon} alt="Journal" className="w-6 h-6" />
+                <img src={journalIcon} alt="Journal" className="w-8 h-8 transition hover:opacity-70 hover:grayscale" />
             </Link>
             <Link to="/calendar">
-                <img src={calendarIcon} alt="Calendar" className="w-6 h-6" />
+                <img src={calendarIcon} alt="Calendar" className="w-8 h-8 transition hover:opacity-70 hover:grayscale" />
             </Link>
         </nav>
     );

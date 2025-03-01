@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "./assets/safepeer-logo-full.png";
 
-const Login = () => {
+const Login = ({ onLogin }) => {
     const [formData, setFormData] = useState({
         username: "",
         password: "",
     });
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -14,14 +16,24 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Logging in with:", formData);
+
+        // Fake authentication logic (ignoring actual username/password)
+        if (formData.username && formData.password) {
+            onLogin(); // Calls the function from App.js
+            navigate("/profile"); // Redirect to profile page after login
+        } else {
+            alert("Please enter a username and password.");
+        }
     };
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-background px-6">
 
             {/* Logo */}
-            <img src={logo} alt="SafePeer Logo" className="w-20 mb-6" />
+            <Link to="/">
+                <img src={logo} alt="SafePeer Logo" className="w-20 mb-6 cursor-pointer" />
+            </Link>
+
 
             {/* Title */}
             <h2 className="text-3xl font-fredoka text-primary mb-6">Log In</h2>
@@ -31,7 +43,7 @@ const Login = () => {
                 <div>
                     <label className="text-[#9FD1D3] font-bold font-fredoka text-x1">
                         Username
-                    </label>            
+                    </label>
                     <input
                         type="text"
                         name="username"
@@ -39,12 +51,13 @@ const Login = () => {
                         className="h-14 w-full p-3 mt-1 rounded-2xl border border-borderGray focus:outline-none focus:ring-2 focus:ring-primary bg-white placeholder-borderGray placeholder:font-poppins"
                         value={formData.username}
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <div>
                     <label className="text-[#9FD1D3] font-bold font-fredoka text-x1">
                         Password
-                    </label> 
+                    </label>
                     <input
                         type="password"
                         name="password"
@@ -52,11 +65,12 @@ const Login = () => {
                         className="h-14 w-full p-3 mt-1 rounded-2xl border border-borderGray focus:outline-none focus:ring-2 focus:ring-primary bg-white placeholder-borderGray placeholder:font-poppins"
                         value={formData.password}
                         onChange={handleChange}
+                        required
                     />
                 </div>
 
                 {/* Submit Button */}
-                <div>  
+                <div>
                     <button
                         type="submit"
                         className="w-full py-3 text-lg bg-accent text-white rounded-full font-medium font-poppins shadow-md hover:bg-secondary transition mt-6"

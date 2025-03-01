@@ -71,9 +71,9 @@ const Profile = () => {
                 </div>
             </form>
 
-            {/* Ready to Match Button */}
-            <Link to="/matching">
-                <button className="w-full max-w-xs mt-6 py-3 text-lg bg-accent text-white rounded-full font-bold font-poppins shadow-md hover:bg-secondary transition">
+            {/* Ready to Match Button (FIXED) */}
+            <Link to="/matching" className="w-full max-w-xs mt-6">
+                <button className="w-full py-4 px-8 text-lg bg-accent text-white font-bold font-poppins shadow-md hover:bg-secondary transition rounded-full">
                     Ready to Match?
                 </button>
             </Link>

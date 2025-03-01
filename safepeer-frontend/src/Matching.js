@@ -12,7 +12,7 @@ const Matching = () => {
     return (
         <div className="flex flex-col items-center min-h-screen bg-background px-6 pb-16">
             {/* Page Title */}
-            <h2 className="text-2xl font-fredoka text-primary mt-6">My Peer Support Matches</h2>
+            <h2 className="text-4xl font-fredoka text-primary mt-6">My Peer Support Matches</h2>
 
             {/* Matches List */}
             <div className="w-full max-w-md mt-6 space-y-4">

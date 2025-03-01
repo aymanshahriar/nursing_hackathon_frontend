@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "./assets/safepeer-logo-full.png"; // Ensure logo is in the correct path
+import { Link, useNavigate } from "react-router-dom";
+import logo from "./assets/safepeer-logo-full.png"; // Ensure the logo exists in this path
 
-const Signup = () => {
+const Signup = ({ onSignup }) => {
     const [formData, setFormData] = useState({
         email: "",
         username: "",
@@ -14,13 +14,22 @@ const Signup = () => {
         role: "",
     });
 
+    const navigate = useNavigate();
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Signing up with:", formData);
+
+        // Fake authentication logic
+        if (formData.email && formData.username && formData.password) {
+            onSignup(); // Calls the function from App.js
+            navigate("/profile"); // Redirect to profile page
+        } else {
+            alert("Please fill out all required fields.");
+        }
     };
 
     return (
@@ -45,6 +54,7 @@ const Signup = () => {
                         className="h-14 w-full p-3 mt-1 rounded-2xl border border-borderGray focus:outline-none focus:ring-2 focus:ring-primary bg-white placeholder-borderGray placeholder:font-poppins"
                         value={formData.email}
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <div>
@@ -57,6 +67,7 @@ const Signup = () => {
                         className="h-14 w-full p-3 mt-1 rounded-2xl border border-borderGray focus:outline-none focus:ring-2 focus:ring-primary bg-white placeholder-borderGray placeholder:font-poppins"
                         value={formData.username}
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <div>
@@ -69,6 +80,7 @@ const Signup = () => {
                         className="h-14 w-full p-3 mt-1 rounded-2xl border border-borderGray focus:outline-none focus:ring-2 focus:ring-primary bg-white placeholder-borderGray placeholder:font-poppins"
                         value={formData.password}
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <div>

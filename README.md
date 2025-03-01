@@ -6,3 +6,9 @@ cd safepeer-frontend
 npm install
 npm start
 ```
+
+*Screenshots:*
+
+![Desktop](./v1-desktop.png)
+
+![Mobile](./v1-mobile.png)

@@ -30,7 +30,10 @@ const Login = ({ onLogin }) => {
         <div className="flex flex-col items-center justify-center min-h-screen bg-background px-6">
 
             {/* Logo */}
-            <img src={logo} alt="SafePeer Logo" className="w-20 mb-6" />
+            <Link to="/">
+                <img src={logo} alt="SafePeer Logo" className="w-20 mb-6 cursor-pointer" />
+            </Link>
+
 
             {/* Title */}
             <h2 className="text-3xl font-fredoka text-primary mb-6">Log In</h2>

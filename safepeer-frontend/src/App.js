@@ -5,6 +5,10 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Profile from "./Profile";
 import Matching from "./Matching";
+import Calendar from "./Calendar";
+import Messages from "./Messages";
+import MessagingPage from "./MessagingPage";
+import Journal from "./Journal";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(
@@ -26,7 +30,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login" element={<Login onLogin={handleLogin} />} />
-                <Route path="/signup" element={<Signup />} />
+                <Route path="/signup" element={<Signup onSignup={handleLogin} />} />
                 <Route
                     path="/profile"
                     element={isAuthenticated ? <Profile onLogout={handleLogout} /> : <Navigate to="/login" />}
@@ -35,6 +39,10 @@ function App() {
                     path="/matching"
                     element={isAuthenticated ? <Matching /> : <Navigate to="/login" />}
                 />
+                <Route path="/calendar" element={<Calendar />} />
+                <Route path="/messages" element={<Messages />} />
+                <Route path="/messagingpage" element={<MessagingPage />} />
+                <Route path="/journal" element={<Journal />} />
             </Routes>
         </Router>
     );

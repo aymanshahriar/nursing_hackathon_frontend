@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "./assets/safepeer-logo-full.png"; // Ensure logo is in the correct path
+import { Link, useNavigate } from "react-router-dom";
+import logo from "./assets/safepeer-logo-full.png"; // Ensure the logo exists in this path
 
-const Signup = () => {
+const Signup = ({ onSignup }) => {
     const [formData, setFormData] = useState({
         email: "",
         username: "",
@@ -14,20 +14,31 @@ const Signup = () => {
         role: "",
     });
 
+    const navigate = useNavigate();
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Signing up with:", formData);
+
+        // Fake authentication logic
+        if (formData.email && formData.username && formData.password) {
+            onSignup(); // Calls the function from App.js
+            navigate("/profile"); // Redirect to profile page
+        } else {
+            alert("Please fill out all required fields.");
+        }
     };
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-background px-6">
 
             {/* Logo */}
-            <img src={logo} alt="SafePeer Logo" className="w-20 mb-6" />
+            <Link to="/">
+                <img src={logo} alt="SafePeer Logo" className="w-20 mb-6 cursor-pointer" />
+            </Link>
 
             {/* Title */}
             <h2 className="text-2xl font-fredoka text-primary mb-6">Create an Account</h2>
@@ -43,6 +54,7 @@ const Signup = () => {
                         className="w-full p-3 mt-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                         value={formData.email}
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <div>
@@ -54,6 +66,7 @@ const Signup = () => {
                         className="w-full p-3 mt-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                         value={formData.username}
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <div>
@@ -65,6 +78,7 @@ const Signup = () => {
                         className="w-full p-3 mt-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                         value={formData.password}
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <div>

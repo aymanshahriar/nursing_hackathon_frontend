@@ -11,6 +11,7 @@ export default {
                 card: "#FEF3D8", // Card Background
                 textPrimary: "#1E293B", // Dark Gray for Text
                 textSecondary: "#4B5563", // Lighter Gray for secondary text
+                borderGray: "#B6B1A4",
             },
             fontFamily: {
                 fredoka: ["Fredoka", "sans-serif"],
